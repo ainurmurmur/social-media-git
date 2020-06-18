@@ -2,7 +2,7 @@
   "name": "social-media",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ainurmurmur.github.io/first-project/",
+  "homepage": "https://ainurmurmur.github.io/social-media-git",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

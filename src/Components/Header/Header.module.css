@@ -1,0 +1,17 @@
+.header {
+    grid-area: header;
+    background-color: rgb(0, 255, 255);
+    grid-template-areas: 1/1/span 1/span 2;
+}
+  
+.logo {
+    width: 90px;
+    height: 90px;
+    z-index: 5;
+     
+}
+.loginBlock {
+  float:right;
+  margin: 30px 30px;
+}
+  

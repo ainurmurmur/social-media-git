@@ -1,0 +1,20 @@
+
+.navBar {
+    grid-area: nav;
+    background-color: blue;
+    grid-template-areas: 2/1/span 1/span 1;
+    padding:20px;
+  }
+
+.ul {
+  
+}
+  
+.item a{
+  color:white;
+  text-decoration: none;
+}
+
+.item a.active {
+  color:gold;
+}

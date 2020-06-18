@@ -1,0 +1,22 @@
+img {
+width: 80px;
+height:100px
+}
+
+.paginator {
+    margin:10px;
+}
+.pageNumber {
+    padding: 5px;
+    border: 1px solid gainsboro;
+
+}
+.pageNumber.selectedPage{
+    font-weight: bold;
+    border-color: black;
+}
+
+.userBlock { 
+    margin: 10px;
+
+}

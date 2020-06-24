@@ -15,7 +15,7 @@ import Preloader from './Components/Common/Preloader/Preloader';
 import { withRouter } from 'react-router-dom';
 import {compose} from 'redux'
 import {Provider} from 'react-redux'
-import {BrowserRouter} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import store from './redux/redux-store';
 import {withLazy} from './Components/Common/Lazy/withLazySuspense'
 
@@ -70,11 +70,11 @@ const mapStateToProps = (state) => ({
 const AppWithRouter = compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
 
 const  AppMain = (props) => {
-return (<BrowserRouter>
+return (<HashRouter > 
     <Provider store={store}>
       <AppWithRouter  />
     </Provider>
-    </BrowserRouter>)
+    </HashRouter>)
 }
 
 export default AppMain; 

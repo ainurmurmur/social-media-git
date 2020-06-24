@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eb2a6f0177aacc08aa1b6b0325b2976d",
+    "revision": "fdf8d7bc0205cf24b177f21693c88d85",
     "url": "/social-media-git/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-media-git/static/css/4.727696f2.chunk.css"
   },
   {
-    "revision": "c1561d3249582828db82",
+    "revision": "7494f45ca6c195aadc70",
     "url": "/social-media-git/static/css/main.e2973b13.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/social-media-git/static/js/4.b1a61334.chunk.js"
   },
   {
-    "revision": "c1561d3249582828db82",
-    "url": "/social-media-git/static/js/main.5cc7d0a7.chunk.js"
+    "revision": "7494f45ca6c195aadc70",
+    "url": "/social-media-git/static/js/main.262a7439.chunk.js"
   },
   {
     "revision": "b753526bb1d4fc4385ca",

@@ -1,51 +1,64 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../Common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import userPhoto from '../../../Assets/Photo/userPhoto.png'
+import ProfileDataReduxForm from './ProfileDataForm'
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ profile,saveProfile, ...props }) => {
+
+   const onSubmit = (formData) => {
+      saveProfile(formData)
+     
+  }
 
 
-   if (!props.profile) {
-      return <Preloader />
+   let [editMode, setEditMode] = useState(false) ;
+
+   if (!profile) {
+      return <Preloader /> 
    }
-   
-   const onMainPhotoSelected =(e) => {
+
+   return (
+
+      <div className="wrapper-content">
+        { editMode ? <ProfileDataReduxForm profile = {profile} onSubmit={onSubmit}/> : <ProfileData profile = {profile}   savePhoto={props.savePhoto} isOwner ={props.isOwner} status ={props.status} updateStatus={props.updateStatus} goToEditMode={ ()=>{setEditMode(true)} }/>} 
+      </div>
+   );
+}
+
+const ProfileData = ({profile, goToEditMode, ...props}) => {
+
+   const onMainPhotoSelected = (e) => {
       if (e.target.files.length) {
          props.savePhoto(e.target.files[0]);
       }
    }
-   
-    return ( 
-      <div className="wrapper-content">
-          ProfileInfo 
-         <div className={classes.descriptionBlock}>
-            <img src={props.profile.photos.large || userPhoto} alt='profile largePic'/>
-            {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
-            <div>{props.profile.fullName}</div>
-           
-            <ProfileStatusWithHooks status ={props.status} updateStatus= {props.updateStatus}/>
-               <h4>Looking for a job:</h4><div>{props.profile.lookingForAJob}</div>
-               <h4>Looking for a job decription:</h4><div>{props.profile.lookingForAJobDescription}</div>
-            
-                <h4>Contacts:</h4> 
-                <ul>
-                   <li>{props.profile.contacts.github}</li>
-                   <li>{props.profile.contacts.vk}</li>
-                   <li>{props.profile.contacts.instagram}</li>
-                   <li>{props.profile.contacts.facebook}</li>
-                   <li>{props.profile.contacts.twitter}</li>
-                   <li>{props.profile.contacts.website}</li>
-                   <li>{props.profile.contacts.youtube}</li>
-                   <li>{props.profile.contacts.mainLink}</li>
-               </ul>
-               
-            ava+descroption
-         </div>
-      </div>
-    );
-  }
-  
-  export default ProfileInfo;
-  
+
+   return <>
+   { props.isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+   <div><b>Full Name: </b>{profile.fullName}</div>
+   <div className={classes.descriptionBlock}>
+      <img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} />
+      {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />} 
+      <div>{profile.fullName}</div>
+
+      <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+      <b>Looking for a job:</b>{profile.lookingForAJob ? ' yes' : ' no'}
+      {profile.lookingForAJob && <div><b>My professional Skills</b>: {profile.lookingForAJobDescription}</div>}
+      <br></br>
+      <div><b>About Me</b>: {profile.aboutMe}</div>
+      <b>Contacts:</b> {Object.keys(profile.contacts).map( key => {
+         return <Contacts key ={key} contactTitle={key} contactValue={profile.contacts[key] }/>
+      })}
+   </div>
+   </>
+}
+
+
+
+
+const Contacts = ({ contactTitle, contactValue }) => {
+   return <div><b>{contactTitle}</b>:{contactValue}</div>
+}
+export default ProfileInfo;

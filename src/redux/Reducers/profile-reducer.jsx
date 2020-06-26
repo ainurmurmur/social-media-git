@@ -52,15 +52,16 @@ export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos}
 
 //THUNK 
 export const getUsersId = (userId) => async (dispatch) => { 
-  
+
         let data =await usersAPI.getUsersId(userId);
          
             dispatch(setUserProfile(data))
     } 
-
+    
+ 
 
 export const getStatus = (userId) =>  async (dispatch) => { 
-
+ 
     let response =await profileAPI.getStatus(userId)
            
             dispatch(setProfileStatus(response.data));
@@ -75,8 +76,7 @@ export const updateStatus = (status) => async (dispatch) => {
                 
             dispatch(setProfileStatus(status));
     }
-}
-
+}   
 export const savePhoto = (file) => async (dispatch) => { 
         
     let response =await profileAPI.savePhoto(file)
@@ -86,7 +86,15 @@ export const savePhoto = (file) => async (dispatch) => {
             dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
-   
+export const saveProfile = (profile) => async (dispatch) => { 
+        
+    let response =await profileAPI.saveProfile(profile)
+         
+            if (response.data.resultCode === 0) {
+                
+            //dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+}
 export default profileReducer;
 
 //Another type of actions 

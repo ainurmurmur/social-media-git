@@ -38,7 +38,6 @@ export const profileAPI = {
   
         return  instance.get(`profile/`+ id)
              .then(response =>{
-                // debugger
                 return  response.data;
     });
      },
@@ -58,7 +57,10 @@ export const profileAPI = {
                'Content-Type': 'multipart/form-data'
            }
        })
-   }
+   },
+   saveProfile: (profile) => {
+    return instance.put(`profile/`, profile)
+}
 };
 
 

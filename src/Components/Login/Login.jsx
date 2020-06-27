@@ -8,7 +8,8 @@ import { Redirect } from 'react-router-dom';
 import classes from '../../Components/Common/FormsControl/FormsControl.module.css';
 import {createField} from '../../Components/Common/FormsControl/FormsControl'
 
-const LoginForm = ({handleSubmit, error}) => {
+
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
   
     //const  maxLength= maxLengthCreator(10);
     return (  
@@ -20,6 +21,9 @@ const LoginForm = ({handleSubmit, error}) => {
             { error && <div className={classes.formControlError}>
               {error}
             </div>}
+            {captchaUrl && <img src={captchaUrl}/>}
+            {captchaUrl && createField('captcha', 'Symbols from image' , Input, [required] )}
+
             <div>
                 <button>Login</button>
             </div>
@@ -37,7 +41,7 @@ let LoginReduxForm = reduxForm ({
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe )
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha )
     }
 
     if(props.isAuth) {
@@ -47,13 +51,14 @@ const Login = (props) => {
    
     return <>
         <h1>LOGIN</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl= {props.captchaUrl}/>
         </>
     
 }
 
 const mapStateToProps =(state) =>({
-    isAuth:state.auth.isAuth
+    isAuth:state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 
 })
 //export default Login;

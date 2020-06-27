@@ -7,13 +7,17 @@ import ProfileDataReduxForm from './ProfileDataForm'
 
 const ProfileInfo = ({ profile,saveProfile, ...props }) => {
 
+   let [editMode, setEditMode] = useState(false) ;
+   
    const onSubmit = (formData) => {
-      saveProfile(formData)
+      saveProfile(formData).then (
+         () => {
+            setEditMode(false)
+         }
+      )
+      
      
   }
-
-
-   let [editMode, setEditMode] = useState(false) ;
 
    if (!profile) {
       return <Preloader /> 
@@ -22,7 +26,7 @@ const ProfileInfo = ({ profile,saveProfile, ...props }) => {
    return (
 
       <div className="wrapper-content">
-        { editMode ? <ProfileDataReduxForm profile = {profile} onSubmit={onSubmit}/> : <ProfileData profile = {profile}   savePhoto={props.savePhoto} isOwner ={props.isOwner} status ={props.status} updateStatus={props.updateStatus} goToEditMode={ ()=>{setEditMode(true)} }/>} 
+        { editMode ? <ProfileDataReduxForm initialValues={profile} profile = {profile} onSubmit={onSubmit}/> : <ProfileData profile = {profile}   savePhoto={props.savePhoto} isOwner ={props.isOwner} status ={props.status} updateStatus={props.updateStatus} goToEditMode={ ()=>{setEditMode(true)} }/>} 
       </div>
    );
 }

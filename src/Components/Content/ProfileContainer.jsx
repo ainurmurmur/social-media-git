@@ -4,9 +4,7 @@ import {getUsersId, updateStatus, getStatus, savePhoto, saveProfile} from '../..
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import {compose} from 'redux'
-//import { getProfile, getStatusSelector, getIsAuth } from '../../redux/Selectors/profile-selectors';
-//import  {withAuthRedirect} from '../HOC/withAuthRedirect';
-//getAuthorizedUserId
+
 
 
 class ProfileContainer extends React.Component{

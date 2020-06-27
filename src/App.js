@@ -2,22 +2,20 @@ import React from 'react';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
-import News from './Components/NavBar/News/News';
-import Music from './Components/NavBar/Music/Music';
 import Settings from './Components/NavBar/Settings/Settings';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ProfileContainer from './Components/Content/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import Login from './Components/Login/Login'
-import {connect} from 'react-redux'
-import {initializedApp} from '../src/redux/Reducers/app-reducer'
+import { connect } from 'react-redux'
+import { initializedApp } from '../src/redux/Reducers/app-reducer'
 import Preloader from './Components/Common/Preloader/Preloader';
 import { withRouter } from 'react-router-dom';
-import {compose} from 'redux'
-import {Provider} from 'react-redux'
-import {HashRouter} from 'react-router-dom'
+import { compose } from 'redux'
+import { Provider } from 'react-redux'
+import { HashRouter } from 'react-router-dom'
 import store from './redux/redux-store';
-import {withLazy} from './Components/Common/Lazy/withLazySuspense'
+import { withLazy } from './Components/Common/Lazy/withLazySuspense'
 
 //import UsersContainer  from './Components/Users/UsersContainer';
 //import DialogsContainer from './Components/NavBar/Dialogs/DialogsContainer';
@@ -28,56 +26,65 @@ const DialogsContainer = React.lazy(() => import('./Components/NavBar/Dialogs/Di
 
 class App extends React.Component {
 
-  componentDidMount(){
-      this.props.initializedApp();
-
- }
-
-render() {
-
-      if (!this.props.initialized) {
-        return <Preloader />
+  catchAllUnhandledErrors = (reason, promise) => {
+    alert ("Some error ocured")
+  }
+  componentDidMount() {
+    this.props.initializedApp();
+    window.addEventListener('unhandlesrejection', this.catchAllUnhandledErrors);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('unhandlesrejection', this.catchAllUnhandledErrors);
   }
 
-  return ( <div className="wrapper">
- 
+  render() {
+
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
+
+    return (<div className="wrapper">
+
       <HeaderContainer />
       <NavBar />
       <div className="wrapper-content">
-        <Route path='/dialogs' render={withLazy(DialogsContainer)}/>
-        <Route path='/profile/:userId?' render={() => <ProfileContainer /> }/>
-        <Route path='/users' render={withLazy(UsersContainer)}/>
-        <Route path='/login' render={() => <Login /> }/>
-        <Route path='/news' component={News} />
-        <Route path='/settings' component={Settings} />
-        <Route path='/music' component={Music} />
+        <Switch>
+          <Route exact path='/' render={() => <Redirect to={"/profile"}  />} />
+          <Route path='/dialogs' render={withLazy(DialogsContainer)} />
+          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+          <Route path='/users' render={withLazy(UsersContainer)} />
+          <Route path='/login' render={() => <Login />} />
+          <Route path='/settings' component={Settings} />
+          <Route path='*' render={() => <div><b>404 NOT FOUND</b></div>} />
+        </Switch>
+
       </div>
       <Footer />
-     </div> 
-       
-    
-  );
-}
+    </div>
+
+
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-    initialized:state.app.initialized
- });
+  initialized: state.app.initialized
+});
 
 
 
 
-const AppWithRouter = compose ( withRouter, connect (mapStateToProps, {initializedApp})) (App);
+const AppWithRouter = compose(withRouter, connect(mapStateToProps, { initializedApp }))(App);
 
-const  AppMain = (props) => {
-return (<HashRouter > 
+const AppMain = (props) => {
+  return (<HashRouter >
     <Provider store={store}>
-      <AppWithRouter  />
+      <AppWithRouter />
     </Provider>
-    </HashRouter>)
+  </HashRouter>)
 }
 
-export default AppMain; 
+export default AppMain;
 
 
 

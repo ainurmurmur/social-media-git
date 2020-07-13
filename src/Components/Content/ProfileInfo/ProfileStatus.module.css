@@ -1,0 +1,35 @@
+.statusSpan:hover{
+    background-color: rgb(248, 244, 244);
+    width: fit-content  ;
+    height: 5px;
+    text-align: left;
+    border: inset 3px;
+
+   
+}
+.statusSpan{
+   
+    width: fit-content  ;
+    text-align: left;
+    font-family: Poppins-Medium;
+    font-size: 22px;
+    color: #5b1888;
+    margin-top: 5px;
+}
+.statusInput{
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #4e4b4b;
+    display: block;
+    width: 30%;
+    background: rgba(243, 244, 248, 0.733);
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    align-items: center;
+    margin: 5px;
+}
+.statusBlock2{
+    display: inline;
+}

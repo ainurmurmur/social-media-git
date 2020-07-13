@@ -1,37 +1,37 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../Common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import userPhoto from '../../../Assets/Photo/userPhoto.png'
 import ProfileDataReduxForm from './ProfileDataForm'
 
-const ProfileInfo = ({ profile,saveProfile, ...props }) => {
+const ProfileInfo = ({ profile, saveProfile, ...props }) => {
 
-   let [editMode, setEditMode] = useState(false) ;
-   
+   let [editMode, setEditMode] = useState(false);
+
    const onSubmit = (formData) => {
-      saveProfile(formData).then (
+      saveProfile(formData).then(
          () => {
             setEditMode(false)
          }
       )
-      
-     
-  }
 
-   if (!profile) {
-      return <Preloader /> 
+
    }
 
-   return (
+   if (!profile) {
+      return <Preloader />
+   }
 
-      <div className="wrapper-content">
-        { editMode ? <ProfileDataReduxForm initialValues={profile} profile = {profile} onSubmit={onSubmit}/> : <ProfileData profile = {profile}   savePhoto={props.savePhoto} isOwner ={props.isOwner} status ={props.status} updateStatus={props.updateStatus} goToEditMode={ ()=>{setEditMode(true)} }/>} 
-      </div>
+   return (<>
+         {editMode ? <ProfileDataReduxForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
+            : <ProfileData  profile={profile} savePhoto={props.savePhoto} isOwner={props.isOwner} status={props.status}
+               updateStatus={props.updateStatus} goToEditMode={() => { setEditMode(true) }} />}
+          </>
    );
 }
 
-const ProfileData = ({profile, goToEditMode, ...props}) => {
+const ProfileData = ({ profile, goToEditMode, ...props }) => {
 
    const onMainPhotoSelected = (e) => {
       if (e.target.files.length) {
@@ -40,29 +40,36 @@ const ProfileData = ({profile, goToEditMode, ...props}) => {
    }
 
    return <>
-   { props.isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
-   <div><b>Full Name: </b>{profile.fullName}</div>
-   <div className={classes.descriptionBlock}>
-      <img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} />
-      {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected} />} 
-      <div>{profile.fullName}</div>
+        <div className={classes.profileBlock}>
+           
+            <div><b>Full Name: </b>{profile.fullName}</div>
+            <img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} />
+            {props.isOwner && <input className={classes.btnEdit} type={'file'} onChange={onMainPhotoSelected} />}
+            
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+         </div> 
 
-      <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
-      <b>Looking for a job:</b>{profile.lookingForAJob ? ' yes' : ' no'}
-      {profile.lookingForAJob && <div><b>My professional Skills</b>: {profile.lookingForAJobDescription}</div>}
-      <br></br>
-      <div><b>About Me</b>: {profile.aboutMe}</div>
-      <b>Contacts:</b> {Object.keys(profile.contacts).map( key => {
-         return <Contacts key ={key} contactTitle={key} contactValue={profile.contacts[key] }/>
-      })}
-   </div>
-   </>
+
+         <div className={classes.aboutMe}>
+         {props.isOwner && <div className={classes.btnEditDiv} ><button className={classes.btnEdit} onClick={goToEditMode}>edit</button></div>}
+            <b>Looking for a job:</b>{profile.lookingForAJob ? ' yes' : ' no'}
+            {profile.lookingForAJob && <div><b>My professional Skills</b>: {profile.lookingForAJobDescription}</div>}
+            <br></br>
+            <div><b>About Me</b>: {profile.aboutMe}</div>
+            <b>Contacts:</b> {Object.keys(profile.contacts).map(key => {
+               return <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]} />
+            })}
+         </div>
+ </>
 }
 
 
 
 
 const Contacts = ({ contactTitle, contactValue }) => {
+
    return <div><b>{contactTitle}</b>:{contactValue}</div>
 }
+
+
 export default ProfileInfo;

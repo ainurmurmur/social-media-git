@@ -1,7 +1,7 @@
 import React from 'react'
-import classes from './FormsControl.module.css'
+import classes from './FormsControl.module.css' 
 import { Field } from 'redux-form';
-
+import styles from '../../../Components/Login/Login.module.css'
 
 
 export const FormControl = ({ input, meta, child, ...props }) => {
@@ -9,7 +9,7 @@ export const FormControl = ({ input, meta, child, ...props }) => {
     const hasError = meta.touched && meta.error;
 
     return (
-        <div className={classes.formControl + " " + (hasError ? classes.error : "")}>
+        <div className={classes.formControl + " " + (hasError ? classes.error : "")} >
             <div>
                 {props.children}
             </div>
@@ -32,6 +32,6 @@ export const Input = (props) => {
 
 export const createField = (name, placeholder, component, validates, props={}, text="") => (
     <div>
-        <Field name={name} placeholder={placeholder} component={component} validate={validates} {...props}/> {text}
+        <Field  className={styles.globalField} name={name} placeholder={placeholder} component={component} validate={validates} {...props}/> {text}
     </div>
 )

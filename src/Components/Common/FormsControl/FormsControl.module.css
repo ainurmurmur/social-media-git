@@ -6,8 +6,14 @@
 
 .formControl.error span {
     color:  red ;
+    font-size: medium;
+    padding: inherit;
 }
-
+.errorSpan{
+    color:  red ;
+    font-size: medium;
+    padding: inherit;
+}
 .formControlError {
     border: solid red 1px;
     padding: 5 px;

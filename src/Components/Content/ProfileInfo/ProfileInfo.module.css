@@ -1,7 +1,171 @@
-.descriptionBlock {
-    padding: 10px;
+.profileBlock{
+    grid-area: profileInfo;
+    padding: 30px;
+    border-radius: 7px;
+    background-color: rgba(253, 253, 253, 0.466);
+    box-shadow: 10px 10px 5px grey;
+    height: auto;
+    overflow: auto;
+    padding-top: 10px;
+
 }
+.aboutMe {
+    grid-area: aboutMe;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: rgba(253, 253, 253, 0.466);
+    box-shadow: 10px 10px 5px grey;
+    height: 550px;
+    overflow: auto;
+   
+}
+
 .avatar {
     width: 200px;
     height: 200px;
+    margin: 10px;
+    border: inset 4px;
+}
+
+.btnEdit {
+    background-image: url("../../../Assets/Photo/marble4.jpg") ;
+    border: none;
+    color: rgba(54, 54, 80, 0.856);
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer; 
+    font-family: Poppins-Bold; 
+    font-size: 17px;
+    border-radius: 3px;
+    margin:10px;
+    box-shadow: 0 0 3px 0px rgb(15, 15, 15);
+    font-weight: bold;
+  
+}
+.btnEditDiv {
+    display: flex;
+    justify-content: space-between;
+}
+.btnSaveDiv {
+    text-align: right;
+}
+.hiddenFileInput input{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.hiddenFileInput{
+    border: none;
+    width: 50px;
+    height: 8px;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+
+    
+    /*for the background, optional*/
+    background: center center no-repeat;
+    background-size: 75% 75%;
+    background-image:  url(./../../../Assets/Photo/upload_img.png);
+}
+p{
+    
+    font-size: xx-small;
+    font-style: italic;
+    text-decoration:white;
+    margin: 0px;
+    display: inline;
+   
+}
+.aboutMeP {
+    font-weight: 600;
+    font-size: 19px;
+}
+.uploadImg {
+    display: inline-flex;
+}
+.profileImgName{
+    display: inline;
+}
+.icons {
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+}
+.contacts{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin: 7px;
+    margin-left: 20px;
+
+}
+b {
+    margin: 7px;
+}
+
+h2 {
+    font-weight: 500;
+    font-family: initial;
+    text-shadow: 0px 0px 0.1px, 0 0 0.2em grey;
+    color: rgba(97, 97, 110, 0.692);
+}
+h4{
+        display: inline;
+        font-size: 19px;
+        font-weight: 100;
+        font-family: Poppins-Bold;
+        margin: 0px 7px 5px 7px;
+        color:  rgba(53, 53, 54, 0.781);
+}
+.bottom {
+    margin-bottom: 5px;
+}
+
+.contactsTitle{
+    display: inline;
+    font-size: 17px;
+    font-family: Poppins-Bold;
+    color:  rgba(0, 0, 0, 0.781);
+    font-weight: 600;
+   
+}
+h3{
+    font-weight: 500;
+    font-family: initial;
+    text-shadow: 0px 0px 0.1px, 0 0 0.2em grey;
+    color: rgba(0, 0, 0, 0.692);
+}
+.edit{
+    display: inline;
+    font-size: 19px;
+    font-weight: 500;
+    font-family: Poppins-Bold;
+    margin: 0px 7px 5px 7px;
+    color:  rgba(0, 0, 0, 0.781);
+   
+}
+.editStyle{
+    
+        display: inline;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+
+}
+.box {
+    display: inline-block;
+}
+.checkboxBlock{
+    display: inline;
+    position: relative;
+}
+.checkbox {
+    width: 25px;
+	height: 25px;
+	margin-right:5px;
+	transition: 0.1s;
+    transition-delay: 0.3s;
+    
 }

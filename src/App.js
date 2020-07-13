@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 import Settings from './Components/NavBar/Settings/Settings';
@@ -8,7 +7,7 @@ import ProfileContainer from './Components/Content/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import Login from './Components/Login/Login'
 import { connect } from 'react-redux'
-import { initializedApp } from '../src/redux/Reducers/app-reducer'
+import { initializedApp } from './redux/Reducers/app-reducer'
 import Preloader from './Components/Common/Preloader/Preloader';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux'
@@ -16,6 +15,9 @@ import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import store from './redux/redux-store';
 import { withLazy } from './Components/Common/Lazy/withLazySuspense'
+import classes from './App.module.css'
+
+
 
 //import UsersContainer  from './Components/Users/UsersContainer';
 //import DialogsContainer from './Components/NavBar/Dialogs/DialogsContainer';
@@ -43,11 +45,11 @@ class App extends React.Component {
       return <Preloader />
     }
 
-    return (<div className="wrapper">
-
+    return (<div className={classes.wrapper}>  
+      
       <HeaderContainer />
       <NavBar />
-      <div className="wrapper-content">
+      <div className={classes.wrapperContent}>
         <Switch>
           <Route exact path='/' render={() => <Redirect to={"/profile"}  />} />
           <Route path='/dialogs' render={withLazy(DialogsContainer)} />

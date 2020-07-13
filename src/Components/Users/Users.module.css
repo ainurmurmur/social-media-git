@@ -1,22 +1,92 @@
-img {
-width: 80px;
-height:100px
+.userWrapper{
+    display: inline;
+    position: relative;
 }
 
+img {
+width: 120px;
+height:120px;
+
+}
+.userSpan{
+    display: inline;
+    position: relative;
+    align-items: center;
+}
+span {
+    display: inline;
+    position: relative;
+    align-items: center;
+}
+.user{
+    display: block;
+    padding: 10px;
+
+}
+.userSpan1{
+    display: block;
+    padding: 0px;
+
+}
+.userSpan2{
+    display: block;
+
+}
 .paginator {
-    margin:10px;
+    
+    position: relative;
+    margin:20px 20px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+
 }
 .pageNumber {
-    padding: 5px;
-    border: 1px solid gainsboro;
+
+    background-image: url("../../Assets/Photo/marble4.jpg") ;
+    border: 1px solid rgb(163, 182, 211);
+    width:70px;
+    color:rgb(60, 63, 88);
+    padding-top: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+
 
 }
 .pageNumber.selectedPage{
+
     font-weight: bold;
     border-color: black;
+    box-shadow: 0 0 4px 0px black;
+    color:rgb(0, 0, 0);
 }
 
 .userBlock { 
     margin: 10px;
-
+    display: block;
+    column-count: 2;
+}
+.btnPage{
+    background-image: url("../../Assets/Photo/marble4.jpg") ;
+    border: none;
+    color: rgba(54, 54, 80, 0.856);
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer; 
+    font-family: Poppins-Bold; 
+    font-size: 10px;
+    border-radius: 5px;
+    margin:10px;
+    box-shadow: 0 0 6px 0px rgb(15, 15, 15);
+  }
+.userP{
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+    margin: 15px;
+    font-style: inherit;
+    width:80%;
+    text-shadow: 0px 0px 0.1px, 0 0 0.2em rgb(235, 233, 233);
 }

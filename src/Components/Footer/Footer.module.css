@@ -1,6 +1,10 @@
 .footer {
     grid-area: footer;
     grid-template-areas: 3/1/span 1/span 2;
-  
+    height: 100%;
+    text-align: center;
   }
+.footerP{
+
+}
   

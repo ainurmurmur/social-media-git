@@ -3,8 +3,8 @@ import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message.jsx';
 import { reduxForm, Field } from 'redux-form';
-import {required} from '../../../Utils/Validators'
 import {Input} from '../../Common/FormsControl/FormsControl'
+import {reset} from 'redux-form';
 
 
 
@@ -29,27 +29,30 @@ let addNewMessage = (values) => {
             <div className={classes.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div>
                <div className={classes.messages}>
                 {messagesElements}
-               </div>
+                </div>
+                <div className={classes.send}>
                <NewMessageForm onSubmit={addNewMessage}/>
-              
-            </div>
+                </div>
         </div>
     )
  }
 
+ const afterSubmit = (value, dispatch) =>
+ dispatch(reset('messageForm'));
 
+   
 let newMessage = (props) => {
     return(   <form onSubmit={props.handleSubmit}>
-                 <Field component={Input} validate={[required]} name={'newMessageBody'}  placeholder='Enter your message'/>
-                 <button>Send</button>
+                 <Field component={Input}  name={'newMessageBody'}  placeholder='Enter your message' className={classes.messageInput}/>
+                 <button className={classes.sendBtn} >Send</button>
               </form> 
     )
 }
 let NewMessageForm = reduxForm ( {
-    form: 'messageForm'
+    form: 'messageForm',
+    onSubmitSuccess: afterSubmit,
 })(newMessage);
 
 

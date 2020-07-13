@@ -1,32 +1,29 @@
 import React from 'react'
 import classes from './Users.module.css'
-import userPhoto from '../../Assets/Photo/userPhoto.png'
+import userPhoto from '../../Assets/Photo/userava.png'
 import { NavLink } from 'react-router-dom'
 
 let User =({followingInProgress, user, unfollow, follow }) =>{
 
     let u = user;
 
-            return (<div>
+            return (<div className={classes.user}>
 
-                <span>
+                <span className={classes.userSpan1}>
                     <NavLink to = {'/Profile/' + u.id}><img src={ u.photos.small != null ? u.photos.small : userPhoto } alt='small pic' style={classes.img}/></NavLink>
                     <div>{u.followed 
-                    ? <button disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                    ? <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
                         unfollow(u.id)}
                     }>Unfollow</button> 
-                    : <button disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                    : <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
                         follow(u.id)}
                     }>Follow</button>}</div>
                 </span>
-                <span>
+                <span className={classes.userSpan2}>
                     <span> 
-                       <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </span>
-                    <span>
-                        <div>{'u.location.country'}</div>
-                         <div>{'u.location.city'}</div>
+                       <p className={classes.userP}>{u.name}</p>
+                       <br></br>
+                        <p>{u.status}</p>
                     </span>
                 </span>
             </div>)

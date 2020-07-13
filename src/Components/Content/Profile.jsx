@@ -1,20 +1,16 @@
 import React from 'react';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
+import ProfileInfo2 from './ProfileInfo/ProfileInfo2';
 import MyPostContainer from './MyPost/MyPostContainer';
+import classes from './Profile.module.css'
 
 
 const Profile = (props) => {
   
 
    return (    
-      <div className="wrapper-content">
-          Profile 
-         <div>
-            <ProfileInfo isOwner ={props.isOwner} saveProfile={props.saveProfile} profile={props.profile} status={props.status} updateStatus = {props.updateStatus} savePhoto={props.savePhoto}/>
-         </div>
-         <div>
-            <MyPostContainer  />
-         </div>
+      <div className={classes.wrapperProfile}>
+            <ProfileInfo2  isOwner ={props.isOwner} saveProfile={props.saveProfile} profile={props.profile} status={props.status} updateStatus = {props.updateStatus} savePhoto={props.savePhoto}/>
+            <MyPostContainer  profile={props.profile}/>
       </div>
     );
   }

@@ -10,8 +10,12 @@ const SAVE_PHOTO_SUCCESS = 'personalInfo/profile/SAVE_PHOTO_SUCCESS'
 let initialState = {
     
     postsData:[
-            {id:'1', post:"Hi, how are you?", likesCouter:'0'},
-            {id:'2', post:"Fine, how is your work?", likesCouter:'1'}
+            {id:'1', 
+            post:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 
+            likesCouter: 0},
+            {id:'2', 
+            post:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+            likesCouter: 2}
     ],
     profile: null,
     status: "",
@@ -24,7 +28,7 @@ const profileReducer = (state=initialState, action) => {
             let newPost = {
                 id:'3', 
                 post:action.newPostText, 
-                likesCouter:'0' 
+                likesCouter: 0 
             };
             
             return {...state, postsData:[...state.postsData, newPost], };

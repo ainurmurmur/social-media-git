@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import classes from './Users.module.css'
+import style from './Users.module.css'
 import User from './User'
 import cn from 'classnames'
-//import userPhoto from '../../../src/Assets/Photo/userPhoto.png'
-//import { NavLink } from 'react-router-dom'
 
 let Users = (props) => {
 
@@ -20,30 +18,30 @@ let Users = (props) => {
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
-    return (<div className={classes.paginator}>
+    return (<div className={style.userWrapper}>
+        <div className={style.paginator}>
         {portionNumber > 1 &&
-            <button onClick={() => { setPortionNumber(portionNumber - 1) }}> PREV </button>
+            <button className={style.btnPage} onClick={() => { setPortionNumber(portionNumber - 1) }}> PREV </button>
         }
-       
+            
             { pages  
                 .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map(p => {
-                    return <span className={ cn({[classes.selectedPage]:props.currentPage === p},classes.pageNumber ) } onClick={(e) => { props.onPageChange(p) } }>{p}</span>
-                   // props.currentPage === p && classes.selectedPage, classes.pageNumber  } onClick={(e) => { props.onPageChange(p) } }>{p}</span>
-               //props.currentPage === p && classes.pageNumber
-               //classes.pageNumber
+                    return <span className={ cn({[style.selectedPage]:props.currentPage === p},style.pageNumber ) } 
+                            onClick={(e) => { props.onPageChange(p) } }>{p}</span>
                 })
             }
       
         {portionCount > portionNumber &&
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}> NEXT </button>
+            <button className={style.btnPage} onClick={() => { setPortionNumber(portionNumber + 1) }}> NEXT </button>
         }
-        <div className={classes.userBlock}>
+        </div>
+        <div className={style.userBlock}>
         {props.users.map(u => <User key={u.id} user={u} followingInProgress={props.followingInProgress} unfollow={props.unfollow} follow={props.follow} />)}
         </div>
 
-
-    </div>)
+        </div>
+   )
 };
 
 
@@ -71,7 +69,9 @@ let Users = (props) => {
                          <div>{'u.location.city'}</div>
                     </span>
                 </span> */
-
+           // props.currentPage === p && classes.selectedPage, classes.pageNumber  } onClick={(e) => { props.onPageChange(p) } }>{p}</span>
+               //props.currentPage === p && classes.pageNumber
+               //classes.pageNumber
 
 
 

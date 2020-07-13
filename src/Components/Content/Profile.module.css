@@ -1,0 +1,17 @@
+.wrapperProfile{
+    position: inherit;
+    display: grid;
+    grid-area: content;
+    width: inherit;
+    height:inherit;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'profileInfo aboutMe'
+                          'myPost myPost';
+    top: 0;
+    left: 0;
+    overflow: auto;
+    gap: 15px;
+    grid-auto-rows: auto;
+
+}

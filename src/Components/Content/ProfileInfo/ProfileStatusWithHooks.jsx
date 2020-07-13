@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import classes from './ProfileStatus.module.css'
 
 
 
@@ -33,11 +34,11 @@ let onStatusChange = (e) => {
         <div>
             {!editMode &&
              <div>
-                <span onDoubleClick ={activateEditMode}>{props.status || 'Status should be placed here'}</span>
+                <p>Status:</p><span onDoubleClick ={activateEditMode} className={classes.statusSpan}>{props.status || 'Status should be placed here'}</span>
            </div>
             }{editMode &&
              <div>
-                <input onBlur={deactivateEditMode} autoFocus={true} onChange={onStatusChange} value={status}></input>
+               <p>Status:</p><input onBlur={deactivateEditMode} autoFocus={true} onChange={onStatusChange} value={status} className={classes.statusInput}></input>
            </div>}
    </div>
    )

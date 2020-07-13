@@ -1,6 +1,45 @@
-/* .content {
-    grid-area: content;
-    background-color: papayawhip;
-    grid-template-areas: 2/2/span 1/span 1;
+.contentMyPost {
+    grid-area: myPost;
+    padding: 10px;
+    text-align: center;
+    border-radius: 7px;
+    background-color: rgba(253, 253, 253, 0.466);
+    box-shadow: 10px 10px 5px grey;
+
   }
-   */
+.btnPost {
+
+    background-image: url('../../../Assets/Photo/marble4.jpg') ;
+    border: none;
+    color: rgba(54, 54, 80, 0.856);
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer; 
+    font-family: Poppins-Bold; 
+    font-size: 15px;
+    border-radius: 5px;
+    margin:10px;
+    box-shadow: 0 0 6px 0px rgb(15, 15, 15);
+    font-weight: bold;
+  
+}
+h2{
+    font-weight: 600;
+    font-family: initial;
+    text-shadow: 0px 0px 0.2px, 0 0 0.4em grey;
+    color: rgba(65, 65, 65, 0.911);
+}
+.globalField {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #4e4b4b;
+    display: block;
+    width: 30%;
+    background: rgba(243, 244, 248, 0.733);
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    align-items: center;
+    margin: auto;
+}

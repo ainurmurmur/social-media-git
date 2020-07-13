@@ -5,10 +5,10 @@ import classes from './../Dialogs.module.css';
 
 const Message = (props) => {
 
+  
    
-
-   return  <div>
-             <div className= {classes.message}>{props.messag} </div>
+   return  <div className= {classes.message}>
+             <div className= {classes.messageSend}><p className={classes.messageP}> {props.messag} </p></div>
                
               </div>
 }

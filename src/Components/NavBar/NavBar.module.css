@@ -1,13 +1,13 @@
-
 .navBar {
     grid-area: nav;
     grid-template-areas: 2/1/span 1/span 1;
-    /* padding:20px; */
+    padding:20px;
     box-shadow: 10px 10px 5px grey;
-    background-color: rgba(147, 147, 180, 0.692);
+    /* background-color: rgba(147, 147, 180, 0.692); */
+    /* background-color:rgba(148, 255, 219, 0.301); */
     margin: 20px;
     border-radius: 10px;
-   
+    height: fit-content;
 
 }
 .navLogo{
@@ -60,11 +60,13 @@ ul {
   
 }
 
-.item a.active {
+a.active {
   font-family: Poppins-Bold;
   font-size: 22px;
-  background-color:  rgba(97, 97, 110, 0.692);
-  color: white;
+  text-decoration: none;
+  background: linear-gradient(0deg, rgb(245, 254, 255) 0%, rgba(169, 245, 255, 0.37) 100%);
+  /* background-color:  rgba(97, 97, 110, 0.692); */
+  color: rgb(56, 33, 184);
   display: block;
   align-items: center;
   text-align: center;
@@ -72,16 +74,15 @@ ul {
   margin: 0 auto;
   width: 100%;  
   text-shadow: black 3px;
-  padding-bottom: 20px;;
 
 }
+a#link:hover {
+  text-decoration: none;
+}
+a#link:link {
+  text-decoration: none;
+}
+a#link:active{
+  color:rgba(194, 248, 250, 0.185);
+}
 
-/* 
-padding-left: 0px;
-padding-top: 0px;
-margin-right: 0px;
-margin-left: 0px;
-padding-right: 0px;
-padding-bottom: 0px;
-height: 100%;
-width: 100%; */

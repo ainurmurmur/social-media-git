@@ -28,7 +28,7 @@ let Users = (props) => {
                 .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                 .map(p => {
                     return <span className={ cn({[style.selectedPage]:props.currentPage === p},style.pageNumber ) } 
-                            onClick={(e) => { props.onPageChange(p) } }>{p}</span>
+                            onClick={(e) => { props.onPageChange(p) } } key={p}>{p}</span>
                 })
             }
       

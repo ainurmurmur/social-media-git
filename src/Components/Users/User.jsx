@@ -1,23 +1,30 @@
 import React from 'react'
 import classes from './Users.module.css'
-import userPhoto from '../../Assets/Photo/userava.png'
+import userPhoto from '../../Assets/Photo/avatar.png'
 import { NavLink } from 'react-router-dom'
+import {ButtonStyled} from '../Common/UI/StylesUI'
+import { Typography } from '@material-ui/core'
+import 'fontsource-roboto';
 
 let User =({followingInProgress, user, unfollow, follow }) =>{
 
     let u = user;
 
-            return (<div className={classes.user}>
+    return (<div className={classes.user} >
 
-                <span className={classes.userSpan1}>
+                <span className={classes.userSpan1} >
                     <NavLink to = {'/Profile/' + u.id}><img src={ u.photos.small != null ? u.photos.small : userPhoto } alt='small pic' style={classes.img}/></NavLink>
                     <div>{u.followed 
-                    ? <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
-                        unfollow(u.id)}
-                    }>Unfollow</button> 
-                    : <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
-                        follow(u.id)}
-                    }>Follow</button>}</div>
+                    ?
+                    <ButtonStyled type='submit' style={{ margin: "10px"}} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                        unfollow(u.id)}}><Typography variant='button'>Unfollow</Typography></ButtonStyled>
+                   
+                    :
+                    <ButtonStyled type='submit'  style={{ margin: "10px"}} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                        follow(u.id)}}><Typography variant='button'>Follow</Typography></ButtonStyled> 
+                   
+                   }
+                    </div>
                 </span>
                 <span className={classes.userSpan2}>
                     <span> 
@@ -33,6 +40,12 @@ let User =({followingInProgress, user, unfollow, follow }) =>{
 export default User;
 
 
+ // <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                    //     follow(u.id)}
+                    // }>Follow</button>
+ // <button className={classes.btnPage} disabled= {followingInProgress.some(id=> id===u.id)} onClick ={()=>{
+                    //     unfollow(u.id)}
+                    // }>Unfollow</button> 
 //StateData
      /*    [
         {id:'1', photoUrl:'https://qph.fs.quoracdn.net/main-qimg-d171a30624492d6041d5b23548136440', followed:true, fullName: 'Alena', status:"Hi, how are you?", location:{country: 'India', city:'New-Delhi'}},

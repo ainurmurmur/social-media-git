@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import classes from './ProfileStatus.module.css'
-
+import TextField from '@material-ui/core/TextField';
 
 
 const ProfileStatusWithHooks = (props) => {
@@ -14,7 +14,8 @@ useEffect(()=>{
 }, [props.status])
 
 let activateEditMode =() => {
-    setEditMode(true);
+    {props.isOwner &&   
+    setEditMode(true)};
 }
    
 let deactivateEditMode =() => {
@@ -32,13 +33,14 @@ let onStatusChange = (e) => {
       
    return (
         <div>
-            {!editMode &&
+            {!editMode &&  
              <div>
                 <p>Status:</p><span onDoubleClick ={activateEditMode} className={classes.statusSpan}>{props.status || 'Status should be placed here'}</span>
            </div>
-            }{editMode &&
+            }{editMode && 
              <div>
-               <p>Status:</p><input onBlur={deactivateEditMode} autoFocus={true} onChange={onStatusChange} value={status} className={classes.statusInput}></input>
+               <p>Status:</p><TextField id="standard-basic"  onBlur={deactivateEditMode} autoFocus={true} onChange={onStatusChange} value={status}></TextField>
+               {/* <input onBlur={deactivateEditMode} autoFocus={true} onChange={onStatusChange} value={status} className={classes.statusInput}></input> */}
            </div>}
    </div>
    )

@@ -18,10 +18,6 @@ import { withLazy } from './Components/Common/Lazy/withLazySuspense'
 import classes from './App.module.css'
 
 
-
-//import UsersContainer  from './Components/Users/UsersContainer';
-//import DialogsContainer from './Components/NavBar/Dialogs/DialogsContainer';
-
 const UsersContainer = React.lazy(() => import('./Components/Users/UsersContainer'));
 const DialogsContainer = React.lazy(() => import('./Components/NavBar/Dialogs/DialogsContainer'));
 
@@ -59,12 +55,9 @@ class App extends React.Component {
           <Route path='/settings' component={Settings} />
           <Route path='*' render={() => <div><b>404 NOT FOUND</b></div>} />
         </Switch>
-
       </div>
       <Footer />
     </div>
-
-
     );
   }
 }
@@ -72,9 +65,6 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 });
-
-
-
 
 const AppWithRouter = compose(withRouter, connect(mapStateToProps, { initializedApp }))(App);
 

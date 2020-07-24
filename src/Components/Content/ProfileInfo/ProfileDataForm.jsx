@@ -4,6 +4,9 @@ import { createField, Input, Textarea } from '../../Common/FormsControl/FormsCon
 import { reduxForm } from 'redux-form';
 import style from './../../../Components/Common/FormsControl/FormsControl.module.css'
 import { Field } from 'redux-form';
+import {ButtonStyled} from '../../Common/UI/StylesUI'
+import { Typography } from '@material-ui/core'
+import 'fontsource-roboto';
 
 
 
@@ -13,8 +16,8 @@ export const ProfileDataForm = ({ handleSubmit, profile, error }) => {
     return <form onSubmit={handleSubmit} className={classes.aboutMe}>
         
 
-        <div className={classes.btnSaveDiv}><button className={classes.btnEdit} >save</button></div>
-
+        {/* <div className={classes.btnSaveDiv}><button className={classes.btnEdit} >save</button></div> */}
+        <div className={classes.btnSaveDiv}><ButtonStyled type='submit' margin='10px'><Typography variant='button'>save</Typography></ButtonStyled></div>
         {error && <div className={style.formControlError}>
             {error}
         </div>}

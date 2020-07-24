@@ -25,6 +25,7 @@
     height: 200px;
     margin: 10px;
     border: inset 4px;
+    cursor: pointer;
 }
 
 .btnEdit {
@@ -166,6 +167,29 @@ h3{
 	height: 25px;
 	margin-right:5px;
 	transition: 0.1s;
-    transition-delay: 0.3s;
-    
+    transition-delay: 0.3s;  
+}
+a:link {
+    text-decoration: none;
+  }
+a:hover {
+    text-decoration: underline;
+}
+dialog {
+    box-shadow: 0 8px 6px -6px black;
+    left: 20%;
+    top: 15%;
+    z-index: 5;
+  }
+  
+.image {
+    width: 500px;
+    height: 500px;
+    z-index: 5;
+    cursor: pointer;
+  }
+  
+.ImgBlock{
+    display: flex;
+    align-items: flex-end;
 }

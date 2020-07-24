@@ -9,19 +9,25 @@
                         "nav content"
                         "footer footer";
  background-image: url("./Assets/Photo/marble4.jpg") ;
+ /* background-color: mintcream;; */
  position: fixed;
  top: 0;
  left: 0;
 }
 
-.wrapperContent {
+.wrapperContent { 
 
     grid-area: content;
     grid-template-areas: 2/2/span 1/span 1;
-    background-color:  rgba(147, 147, 180, 0.692);
+    /* background-color:  rgba(147, 147, 180, 0.692); */
     margin: 20px 20px 20px 0px;
     padding:40px;
-    background-color:  rgba(147, 147, 180, 0.692);
+    /* background-color:rgba(210, 244, 248, 0.527); */
+    /* background-color: rgba(197, 240, 226, 0.301); */
+    background: rgb(255,255,245);
+    background: linear-gradient(0deg, rgb(245, 254, 255) 0%, rgba(169, 245, 255, 0.37) 100%);
+    /* background-color: #d6eaf56e; */
+    /* background-color: #d6e7f16e; */
     box-shadow: 10px 10px 5px grey;
     margin: 20px 20px 20px 0px;
     overflow: auto;
@@ -31,6 +37,7 @@
     
     
 }
+/* //rgba(169, 255, 241, 0.37)   rgba(169, 223, 255, 0.37) */
 
 
 

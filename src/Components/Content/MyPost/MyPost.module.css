@@ -9,9 +9,12 @@
   }
 .btnPost {
 
-    background-image: url('../../../Assets/Photo/marble4.jpg') ;
+    /* background-image: url('../../../Assets/Photo/marble4.jpg') ; */
+    /* background-color: rgba(57,73,171 ,1); */
+    background-color: #3724e0;
+    color: white;
     border: none;
-    color: rgba(54, 54, 80, 0.856);
+    /* color: rgba(54, 54, 80, 0.856); */
     padding: 12px 20px;
     text-decoration: none;
     cursor: pointer; 
@@ -22,6 +25,9 @@
     box-shadow: 0 0 6px 0px rgb(15, 15, 15);
     font-weight: bold;
   
+}
+.margin{
+    margin: 10px;
 }
 h2{
     font-weight: 600;

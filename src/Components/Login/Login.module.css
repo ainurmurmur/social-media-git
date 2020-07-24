@@ -21,7 +21,7 @@
 #loginSpan{
     display: block;
 }
-span{
+.spanLogin{
     font-family: Poppins-Bold;
     font-size: 30px;
     font-weight: 600;
@@ -58,15 +58,18 @@ p {
     line-height: 1.5;
     color: #4e4b4b;
     display: block;
-    width: 30%;
+    width: 20%;
     background: rgba(243, 244, 248, 0.733);
     height: 50px;
     border-radius: 25px;
     padding: 0 30px 0 68px;
     align-items: center;
-    margin: 5px;
+    margin-bottom: 10px;
     width: 300px;
    
+}
+#btnLoginForm{
+    box-shadow: 0 2px 4px 2px #11545d
 }
 .checkboxBlock{
     display: inline;

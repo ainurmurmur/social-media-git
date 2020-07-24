@@ -5,6 +5,9 @@ import Message from './Message/Message.jsx';
 import { reduxForm, Field } from 'redux-form';
 import {Input} from '../../Common/FormsControl/FormsControl'
 import {reset} from 'redux-form';
+import {ButtonStyled} from '../../Common/UI/StylesUI'
+import { Typography } from '@material-ui/core'
+import 'fontsource-roboto';
 
 
 
@@ -39,6 +42,7 @@ let addNewMessage = (values) => {
     )
  }
 
+     
  const afterSubmit = (value, dispatch) =>
  dispatch(reset('messageForm'));
 
@@ -46,7 +50,9 @@ let addNewMessage = (values) => {
 let newMessage = (props) => {
     return(   <form onSubmit={props.handleSubmit}>
                  <Field component={Input}  name={'newMessageBody'}  placeholder='Enter your message' className={classes.messageInput}/>
-                 <button className={classes.sendBtn} >Send</button>
+                 <br></br>
+                 <ButtonStyled type='submit' margin='10px'><Typography variant='button'>Send</Typography></ButtonStyled>
+                 {/* <button className={classes.sendBtn} >Send</button> */}
               </form> 
     )
 }

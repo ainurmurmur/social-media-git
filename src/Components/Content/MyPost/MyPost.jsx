@@ -4,6 +4,10 @@ import { reduxForm, Field } from 'redux-form';
 import {Textarea} from '../../Common/FormsControl/FormsControl'
 import classes from './MyPost.module.css'
 import {reset} from 'redux-form';
+import {ButtonStyled} from '../../Common/UI/StylesUI'
+import { Typography } from '@material-ui/core'
+import 'fontsource-roboto';
+import TextField  from '@material-ui/core/TextField';
 
 
 const MyPost = (props) => {
@@ -15,12 +19,9 @@ const MyPost = (props) => {
 
 
   let onPostChange = (values) => {
-    props.addPost(values.newPostText)
-   
-  
+    {values.newPostText &&
+    props.addPost(values.newPostText)}
   }
-
-
     return ( 
       <div className={classes.contentMyPost}>
        <h3>Posts:</h3>
@@ -29,23 +30,37 @@ const MyPost = (props) => {
        </div>
     );
   }
+  const renderTextField = ({label,input, meta: { touched, invalid, error }, ...custom}) => {
+    return (<TextField
+      id="standard-basic"
+       label={label}
+       placeholder={label}
+       error={touched && invalid}
+       helperText={touched && error}
+       {...input}
+       {...custom}
+     />
+     
+     )
+     
+   }
 
- 
   const afterSubmit = (value, dispatch) =>
   dispatch(reset('newPostText'));
  
 const MyPostPreForm = (props) => {
-  return ( <form onSubmit={props.handleSubmit}>
+  return (
+      <form onSubmit={props.handleSubmit}>
        <div>
-        <Field className={classes.globalField} component={Textarea} name ={'newPostText'}  placeholder={'Write your post'}/>
+        <Field className={classes.globalField} component={renderTextField} name ={'newPostText'}  placeholder='Write your post'/>
        </div>
-       <div>
-         <button className={classes.btnPost}>Add post</button>
+       <div className={classes.margin}>
+       <ButtonStyled type='submit' margin='10px'><Typography variant='button'>Add post</Typography></ButtonStyled>
         </div>
        </form>
   )
 }
-
+// className={classes.btnPost}
 const MyPostForm = reduxForm ({
   form:'newPostText',
   onSubmitSuccess: afterSubmit,

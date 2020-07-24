@@ -4,6 +4,10 @@ import Preloader from '../../Common/Preloader/Preloader';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import userPhoto from '../../../Assets/Photo/userPhoto.png'
 import ProfileDataReduxForm from './ProfileDataForm'
+import {ButtonStyled} from '../../Common/UI/StylesUI'
+import { Typography } from '@material-ui/core'
+import 'fontsource-roboto';
+import ImageComponent from './ImgComponent';
 
 const ProfileInfo = ({ profile, saveProfile, ...props }) => {
 
@@ -43,7 +47,8 @@ const ProfileData = ({ profile, goToEditMode, ...props }) => {
         <div className={classes.profileBlock}>
            
             <div><b>Full Name: </b>{profile.fullName}</div>
-            <img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} />
+            <ImageComponent profile={profile}/>
+            {/* <img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} /> */}
             {props.isOwner && <input className={classes.btnEdit} type={'file'} onChange={onMainPhotoSelected} />}
             
             <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
@@ -51,12 +56,15 @@ const ProfileData = ({ profile, goToEditMode, ...props }) => {
 
 
          <div className={classes.aboutMe}>
-         {props.isOwner && <div className={classes.btnEditDiv} ><button className={classes.btnEdit} onClick={goToEditMode}>edit</button></div>}
+         {props.isOwner && <div className={classes.btnEditDiv} >
+            {/* <button className={classes.btnEdit} onClick={goToEditMode}>edit</button></div>} */}
+         <ButtonStyled type='submit' margin='10px'><Typography variant='button'  onClick={goToEditMode}>edit</Typography></ButtonStyled></div>}
+
             <b>Looking for a job:</b>{profile.lookingForAJob ? ' yes' : ' no'}
             {profile.lookingForAJob && <div><b>My professional Skills</b>: {profile.lookingForAJobDescription}</div>}
             <br></br>
             <div><b>About Me</b>: {profile.aboutMe}</div>
-            <b>Contacts:</b> {Object.keys(profile.contacts).map(key => {
+            <b>Contacts:</b> {Object.keys(profile.contacts).map(key => {  key={key}
                return <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]} />
             })}
          </div>

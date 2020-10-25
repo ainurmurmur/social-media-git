@@ -1,14 +1,14 @@
 import React from 'react';
 import Profile from '../Content/Profile'
 import {getUsersId, updateStatus, getStatus, savePhoto, saveProfile} from '../../redux/Reducers/profile-reducer'
+import {getChat, getAllDialogs, startChatting} from '../../redux/Reducers/dialogs-reducer'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import {compose} from 'redux'
 
 
-
 class ProfileContainer extends React.Component{
-   
+
    refreshProfile () {
       let userId = this.props.match.params.userId;
       if (!userId) {
@@ -30,10 +30,13 @@ class ProfileContainer extends React.Component{
    }
 
    render() {
- 
-   return (    
- 
-     <Profile {...this.props} profile={this.props.profile} status ={this.props.status} updateStatus = {this.props.updateStatus} isOwner={!this.props.match.params.userId} savePhoto={this.props.savePhoto}/>
+
+   return (
+     <Profile {...this.props} profile={this.props.profile} status ={this.props.status} updateStatus = {this.props.updateStatus}
+              isOwner={!this.props.match.params.userId} savePhoto={this.props.savePhoto}
+              getChat={this.props.getChat} getAllDialogs={this.props.getAllDialogs}
+              startChatting ={this.props.startChatting}
+              />
     );
   }
 };
@@ -45,10 +48,10 @@ let mapStateToProps = (state) => ({
       isAuth: state.auth.isAuth
   }); 
 
-
-export default compose (withRouter, connect (mapStateToProps, {getUsersId, saveProfile, getStatus, updateStatus, savePhoto})) (ProfileContainer)
+export default compose (withRouter, connect (mapStateToProps,
+    {getUsersId, saveProfile, getStatus, updateStatus, 
+      savePhoto, getChat, getAllDialogs, startChatting})) (ProfileContainer)
   
-
 //withAuthRedirect
 //dispatch = {props.dispatch} store={props.store}
 
@@ -57,14 +60,11 @@ export default compose (withRouter, connect (mapStateToProps, {getUsersId, saveP
                 this.props.setUserProfile(data);
    }); */
 
-
 //Callbacks before compose () ()
-
-   /* 
+   /*
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 export default connect (mapStateToProps, {getUserId})(WithUrlDataContainerComponent); */
-
 
 //mapStateToProps
 // let mapStateToProps = (state) => ({

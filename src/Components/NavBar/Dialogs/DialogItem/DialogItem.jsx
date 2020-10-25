@@ -1,15 +1,42 @@
 import React from 'react';
 import classes from './../Dialogs.module.css';
-import {NavLink} from 'react-router-dom';
-
+import Preloader from "../../../Common/Preloader/Preloader";
 
 const DialogItem = (props) => {
-   let path ='/dialogs/' + props.id;
 
-   return <div >
-                    <div className={classes.item}> <p className={classes.dialog}><NavLink to={path} activeClassName={classes.active}>{props.name} </NavLink></p></div>
-                </div> 
+    let time;
+
+    if (props.addedAt !== null) {
+        let array = new Array();
+        let addedAt = props.addedAt
+        array = addedAt.split('T');
+        time = array[1].split('.')[0]
+    }
+
+    return (
+
+        <div>
+            <div className={classes.message}>
+                {props.body === null
+                    ? null
+                    : <div className={classes.messageSend}>
+                        <p className={classes.messageP}>
+                            {props.body}
+                        </p>
+                        <div className={classes.dialogs_NameAndDate}>
+                            <p className={classes.date}>
+                                {time}
+                            </p>
+                            <p className={classes.senderName}>
+                                {props.senderName}
+                            </p>
+                        </div>
+                    </div>}
+
+
+            </div>
+        </div>
+    )
 }
-{/* <li className={classes.item}><NavLink to='/profile' activeClassName={classes.active}><br/><div className={classes.navDiv}>
-Profile</div></NavLink></li> */}
+
 export default DialogItem;

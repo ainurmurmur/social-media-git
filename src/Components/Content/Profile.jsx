@@ -6,10 +6,13 @@ import classes from './Profile.module.css'
 
 const Profile = (props) => {
   
-
-   return (    
+   return (
       <div className={classes.wrapperProfile}>
-            <ProfileInfo2  isOwner ={props.isOwner} saveProfile={props.saveProfile} profile={props.profile} status={props.status} updateStatus = {props.updateStatus} savePhoto={props.savePhoto}/>
+            <ProfileInfo2  isOwner ={props.isOwner} saveProfile={props.saveProfile}
+             profile={props.profile} status={props.status} updateStatus = {props.updateStatus} 
+             savePhoto={props.savePhoto} getChat={props.getChat} getAllDialogs={props.getAllDialogs}
+             startChatting={props.startChatting}
+             />
             <MyPostContainer  profile={props.profile}/>
       </div>
     );

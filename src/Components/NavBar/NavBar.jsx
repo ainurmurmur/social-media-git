@@ -1,13 +1,8 @@
 import React from 'react';
 import classes from './NavBar.module.css';
 import { NavLink } from 'react-router-dom';
-import name from '../../Assets/Photo/name.png'
-import message from '../../Assets/Photo/message.png'
-import news from '../../Assets/Photo/news.png'
-import user from '../../Assets/Photo/users.png'
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
-import Paper from '@material-ui/core/Paper';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
 import DraftsIcon from '@material-ui/icons/Drafts';
@@ -15,8 +10,10 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
+
 const NavBar = () => {
-    return ( <div  className={classes.navBar}>
+
+  return ( <div  className={classes.navBar}>
       <MenuList >
       <NavLink to='/profile' activeClassName={classes.active} id={classes.link}>
         <MenuItem>
@@ -26,7 +23,7 @@ const NavBar = () => {
           <Typography variant="h5">Profile</Typography>
         </MenuItem>
         </NavLink>
-        <NavLink to='/dialogs' activeClassName={classes.active} id={classes.link}>
+        <NavLink to='/dialogs' activeClassName={classes.active} id={classes.link} >
         <MenuItem>
           <ListItemIcon>
             <DraftsIcon fontSize="medium" color='primary'/>
@@ -56,9 +53,6 @@ const NavBar = () => {
         </NavLink>
       </MenuList>
     </div>
-
-         
-   
     );
 }
 export default NavBar;     

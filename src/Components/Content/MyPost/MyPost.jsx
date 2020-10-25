@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from './Post/Post';
 import { reduxForm, Field } from 'redux-form';
-import {Textarea} from '../../Common/FormsControl/FormsControl'
 import classes from './MyPost.module.css'
 import {reset} from 'redux-form';
 import {ButtonStyled} from '../../Common/UI/StylesUI'

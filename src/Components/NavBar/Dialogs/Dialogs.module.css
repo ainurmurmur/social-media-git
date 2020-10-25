@@ -1,5 +1,5 @@
 
-  .dialogs {
+.dialogs {
     grid-area: content;
     display: grid;
     grid-template-columns: 4fr 10fr;
@@ -9,113 +9,115 @@
                           'free send';
     gap: 15px;
     overflow: auto;
-
-  }
+    height: 500px;
+}
 
 .dialogsItems {
-  grid-area: items;
-  padding: 30px;
-  border-radius: 7px;
-  background-color: rgba(253, 253, 253, 0.466);
-  box-shadow: 10px 10px 5px grey;
-  overflow: auto;
-  padding-top: 10px;
-  text-decoration: none;
+    grid-area: items;
+    padding: 30px;
+    border-radius: 7px;
+    background-color: rgba(253, 253, 253, 0.466);
+    box-shadow: 10px 10px 5px grey;
+    overflow: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    height: 320px;
+}
 
-}
 .dialog {
-  color: rgb(38, 202, 46);
-  text-decoration: none;
-  font-family: Poppins-Bold;
-  font-size: 22px;
-  line-height: 1.2;
-  display: block;
-  margin: 0 auto;
-  border-radius: 1px;
-  font-style: unset;
- 
-    
+    color: rgb(38, 202, 46);
+    text-decoration: none;
+    font-family: Poppins-Bold;
+    font-size: 22px;
+    line-height: 1.2;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1px;
+    font-style: unset;
 }
-.dialog a{
-  color: rgb(123, 95, 158);
-  text-decoration: none;
-  font-family: Poppins-Bold;
-  font-size: 22px;
-  line-height: 1.2;
-  display: block;
-  margin: 0 auto;
-  border-radius: 1px;
-  font-style: unset;
-  text-shadow: 0px 0px 0.05px, 0 0 0.1em rgb(149, 148, 148);
-  
- 
-    
+
+.dialog a {
+    color: rgb(123, 95, 158);
+    text-decoration: none;
+    font-family: Poppins-Bold;
+    font-size: 22px;
+    line-height: 1.2;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1px;
+    font-style: unset;
+    text-shadow: 0px 0px 0.05px, 0 0 0.1em rgb(149, 148, 148);
 }
 .dialog a.active {
-  color: rgb(24, 22, 22);
-  text-decoration: none;
+    color: rgb(24, 22, 22);
+    text-decoration: none;
+    background: linear-gradient(40deg, #004c8c 50%, #80deea 90%);
+    border-radius: 1px;
 }
+
 
 .messages {
-  grid-area: message;
-  overflow: auto;
-  padding: 30px;
-  height: 290px;
-  border-radius: 7px;
-  background-color: rgba(253, 253, 253, 0.466);
-  box-shadow: 10px 10px 5px grey;
-  padding-top: 40px;
-  display: inline-block;
-  gap: 10px;
- 
+    grid-area: message;
+    overflow: auto;
+    padding: 30px;
+    height: 290px;
+    border-radius: 7px;
+    background-color: rgba(253, 253, 253, 0.466);
+    box-shadow: 10px 10px 5px grey;
+    padding-top: 40px;
+    display: inline-block;
+    gap: 10px;
+
 
 }
-.message{
-  vertical-align: top;
- 
+
+.message {
+    vertical-align: top;
+
 }
-.messageSend{
+
+.messageSend {
     text-align: right;
     border: orange;
     vertical-align: top;
     padding: 15px;
 
 }
-.messageP {
-   text-align: right;
-   border: mintcream;
-   background-color: rgba(251, 251, 251, 0.479);
-   padding: 10px;
-   text-decoration: none;
-   font-style: normal;
-   border-radius: 40%;
-   
-}
-.send{
-  grid-area: send;
-  padding: 10px;
-  text-align: right;
-  
-  
-}
-.sendBtn {
-  
-  background-image: url('../../../Assets/Photo/marble4.jpg') ;
-  border: none;
-  color: rgba(54, 54, 80, 0.856);
-  padding: 12px 20px;
-  text-decoration: none;
-  cursor: pointer; 
-  font-family: Poppins-Bold; 
-  font-size: 15px;
-  border-radius: 5px;
-  margin:10px;
-  box-shadow: 0 0 6px 0px rgb(15, 15, 15);
-  font-weight: bold;
 
+.messageP {
+    text-align: right;
+    border: mintcream;
+    background-color: rgba(251, 251, 251, 0.479);
+    padding: 10px;
+    text-decoration: none;
+    font-style: normal;
+    border-radius: 40%;
 }
-.messageInput{
-  font-family: Poppins-Medium;
+
+.send {
+    grid-area: send;
+    padding: 10px;
+    text-align: right;
+}
+
+.sendBtn {
+
+    background-image: url('../../../Assets/Photo/marble4.jpg');
+    border: none;
+    color: rgba(54, 54, 80, 0.856);
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Poppins-Bold;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 0 6px 0px rgb(15, 15, 15);
+    font-weight: bold;
+}
+
+.messageInput {
+    font-family: Poppins-Medium;
     font-size: 15px;
     line-height: 1.5;
     color: #4e4b4b;
@@ -129,16 +131,60 @@
     margin: auto;
     margin-right: 0px;
 }
-.item{
-  display: block;
-  text-decoration: none;
-  text-align: left;
-  align-items: left;
-  justify-content: space-between;
-  padding: 10px;
-  border-radius: 1px;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 20px;
+
+.item {
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    align-items: left;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 1px;
+    width: 100%;
+    padding-bottom: 20px;
 }
 
+.contacts_list {
+    display: flex;
+    border-radius: 20px;
+    background: rgba(169, 245, 255, 0.37) ;
+}
+.contacts_NameAndDate{
+    display: grid;
+}
+.dialogs_NameAndDate{
+    display: flow-root;;
+}
+.post{
+    font-family: Poppins-Bold;
+    font-size: 20px;
+    color: #333333;
+    text-align: unset;
+    margin: 10px;
+    font-style: inherit;
+    width:80%;
+}
+.ava {
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+    border: groove;
+}
+.date{
+    display: inline;
+    font-size: 12px;
+    font-family: "Times New Roman";
+    color: rgba(0, 0, 0, 0.52);
+    font-weight: 200;
+    text-align: unset;
+    margin: 15px;
+}
+.senderName{
+    font-family: Poppins-Bold;
+    font-size: 14px;
+    color: #33333362;
+    text-align: unset;
+    margin: 2px;
+    font-style: inherit;
+    width:80%;
+}

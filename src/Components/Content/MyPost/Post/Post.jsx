@@ -2,33 +2,24 @@ import React, { useState }from 'react';
 import classes from './Post.module.css';
 import userPhoto from '../../../../Assets/Photo/userPhoto.png'
 import Preloader from '../../../Common/Preloader/Preloader'
-import likeIcon from '../../../../Assets/Photo/like.png'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 
-
-
 const Post = ({profile, ...props}) => {
 
-  // const [count, setCount] = useState(0); 
   
   let [notChecked, Checked] = useState(false);
 
   const setChecked = (e) => {
     Checked(e.target.checked)
-   
   }
 
   if (!profile) {
     return <Preloader />
  };
-
- 
 
     return (
     <div className={classes.postBlock}>

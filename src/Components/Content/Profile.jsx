@@ -12,6 +12,7 @@ const Profile = (props) => {
              profile={props.profile} status={props.status} updateStatus = {props.updateStatus} 
              savePhoto={props.savePhoto} getChat={props.getChat} getAllDialogs={props.getAllDialogs}
              startChatting={props.startChatting}
+            isFetching={props.isFetching}
              />
             <MyPostContainer  profile={props.profile}/>
       </div>

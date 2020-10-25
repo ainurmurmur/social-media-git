@@ -5,7 +5,7 @@ const ADD_POST = 'personalInfo/profile/ADD-POST';
 const SET_USER_PROFILE = 'personalInfo/profile/SET_USER_PROFILE'
 const SET_STATUS = 'personalInfo/profile/SET_STATUS'
 const SAVE_PHOTO_SUCCESS = 'personalInfo/profile/SAVE_PHOTO_SUCCESS'
-
+const TOGGLE_IS_FETCHING = 'personalInfo/profile/TOGGLE_IS_FETCHING'
 
 let initialState = {
     
@@ -19,6 +19,7 @@ let initialState = {
     ],
     profile: null,
     status: "",
+    isFetching: false,
   
 
 } 
@@ -43,6 +44,12 @@ const profileReducer = (state=initialState, action) => {
         }
         case SAVE_PHOTO_SUCCESS:{
             return {...state, profile:{...state.profile, photos:action.photos}}; 
+        } 
+        case TOGGLE_IS_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         }
         default: 
             return state;
@@ -54,6 +61,8 @@ export const addPostActionCreator = (newPostText)=> ({type: ADD_POST, newPostTex
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setProfileStatus = (status) => ({ type: SET_STATUS, status })
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+
 
 //THUNK 
 export const getUsersId = (userId) => async (dispatch) => { 
@@ -80,9 +89,10 @@ export const updateStatus = (status) => async (dispatch) => {
     }
 }   
 export const savePhoto = (file) => async (dispatch) => { 
-        
+    debugger
+    dispatch(toggleIsFetching(true))
     let response =await profileAPI.savePhoto(file)
-         
+    dispatch(toggleIsFetching(false))
             if (response.data.resultCode === 0) {
                 
             dispatch(savePhotoSuccess(response.data.data.photos));

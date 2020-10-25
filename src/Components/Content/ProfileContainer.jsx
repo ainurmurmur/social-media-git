@@ -30,22 +30,25 @@ class ProfileContainer extends React.Component{
    }
 
    render() {
-
+      
    return (
      <Profile {...this.props} profile={this.props.profile} status ={this.props.status} updateStatus = {this.props.updateStatus}
               isOwner={!this.props.match.params.userId} savePhoto={this.props.savePhoto}
               getChat={this.props.getChat} getAllDialogs={this.props.getAllDialogs}
               startChatting ={this.props.startChatting}
+              isFetching={this.props.isFetching}
               />
     );
   }
 };
 
 let mapStateToProps = (state) => ({
+
       profile: state.profilePage.profile,
       status:  state.profilePage.status,
       authorizedUserId: state.auth.id,
-      isAuth: state.auth.isAuth
+      isAuth: state.auth.isAuth,
+      isFetching: state.profilePage.isFetching,
   }); 
 
 export default compose (withRouter, connect (mapStateToProps,

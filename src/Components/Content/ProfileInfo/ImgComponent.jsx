@@ -1,49 +1,47 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import classes from './ProfileInfo.module.css';
 import userPhoto from '../../../Assets/Photo/avatar.png'
+import Preloader from "../../Common/Preloader/Preloader";
 
-//<img src={profile.photos.large || userPhoto} alt='profile largePic' className={classes.avatar} />
+ let ImageComponent =(props)=> {
 
-export default class ImageComponent extends React.Component {
+   
+    const [state, setState] = useState({isOpen: false});
 
+     let handleShowDialog = () => {
+        setState({isOpen: !state.isOpen});
+             console.log('cliked');
+         };
 
-    shouldComponentUpdate(nextProps){
-        return nextProps.profile.photos.large !== this.props.profile.photos.large;
-    }
-
-    state = {isOpen: false};
-
-    handleShowDialog = () => {
-        this.setState({isOpen: !this.state.isOpen});
-        console.log('cliked');
-    };
-
-    render() {
-        return (
+debugger
+        return (<>
             <div>
+            {props.isFetching ? <Preloader /> : null}
                 <img
                     className={classes.avatar}
-                    src={this.props.profile.photos.large || userPhoto}
-                    onClick={this.handleShowDialog}
+                    src={props.profile.photos.large || userPhoto}
+                    onClick={()=>handleShowDialog()}
                     alt="no image"
                 />
-                {this.state.isOpen && (
+                {state.isOpen && (
                     <dialog
                         className={classes.dialog}
                         style={{position: 'absolute'}}
                         open
-                        onClick={this.handleShowDialog}
-                        onBlue={this.handleShowDialog}
+                        onClick={()=>handleShowDialog()}
+                        onBlue={()=>handleShowDialog()}
                     >
                         <img
                             className={classes.image}
-                            src={this.props.profile.photos.large || userPhoto}
-                            onClick={this.handleShowDialog}
+                            src={props.profile.photos.large || userPhoto}
+                            onClick={()=>handleShowDialog()}
                             alt="no image"
                         />
                     </dialog>
                 )}
             </div>
+            </>
         );
     }
-}
+
+export default ImageComponent;

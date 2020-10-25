@@ -45,8 +45,7 @@ const ProfileInfo2 = ({ profile, saveProfile, ...props }) => {
    if (!profile) {
       return <Preloader />
    }
-
-   debugger
+ 
    return (<>
 
       <ProfileData profile={profile} savePhoto={props.savePhoto} isOwner={props.isOwner} status={props.status}
@@ -55,6 +54,7 @@ const ProfileInfo2 = ({ profile, saveProfile, ...props }) => {
          getChat={props.getChat}
          getAllDialogs={props.getAllDialogs}
          startChatting={props.startChatting}
+         isFetching={props.isFetching}
       />
    </>
    );
@@ -62,12 +62,16 @@ const ProfileInfo2 = ({ profile, saveProfile, ...props }) => {
 
 const ProfileData = ({ profile, goToEditMode, ...props }) => {
 
-   debugger
    const styles = useStyles();
 
    const onMainPhotoSelected = (e) => {
+   
       if (e.target.files.length) {
          props.savePhoto(e.target.files[0]);
+         
+      }
+      else{
+         alert('Only JPEG(jpg) format')
       }
    }
    let openChat = (id) => {
@@ -83,7 +87,7 @@ const ProfileData = ({ profile, goToEditMode, ...props }) => {
          <div className={classes.profileImgName}>
             <div><h2> {profile.fullName} </h2></div>
             <div className={classes.ImgBlock}>
-               <ImageComponent profile={profile} />
+               <ImageComponent profile={profile} isFetching={props.isFetching}/>
 
                {props.isOwner &&
                   <div>

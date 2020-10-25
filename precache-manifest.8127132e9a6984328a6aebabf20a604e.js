@@ -1,47 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "522c5bd674edc43323ae412ed76b4769",
+    "revision": "019d4e3572890cf28e82337aa085e8c8",
     "url": "/social-media-git/index.html"
   },
   {
-    "revision": "d19cb25d0d2a20f747ad",
+    "revision": "979a36d5fd0250db5b36",
     "url": "/social-media-git/static/css/2.9f6fc44d.chunk.css"
   },
   {
-    "revision": "bbbf63d6de68af77b993",
-    "url": "/social-media-git/static/css/3.b47346b3.chunk.css"
+    "revision": "3b1fc26c835c2895986c",
+    "url": "/social-media-git/static/css/3.86fd48c6.chunk.css"
   },
   {
-    "revision": "2d9245e83e8c6c24cbea",
-    "url": "/social-media-git/static/css/4.d70cf05b.chunk.css"
+    "revision": "dbc866a6ee8aa0296d1f",
+    "url": "/social-media-git/static/css/4.0f0b3991.chunk.css"
   },
   {
-    "revision": "7a6c61439c93963ad11d",
-    "url": "/social-media-git/static/css/main.effb79c4.chunk.css"
+    "revision": "b65a9165a91a37612ee9",
+    "url": "/social-media-git/static/css/main.fad7b742.chunk.css"
   },
   {
-    "revision": "d19cb25d0d2a20f747ad",
-    "url": "/social-media-git/static/js/2.73de3cf0.chunk.js"
+    "revision": "979a36d5fd0250db5b36",
+    "url": "/social-media-git/static/js/2.cd0d0798.chunk.js"
   },
   {
     "revision": "5e9b6f5c16b720e8a86875f97734673e",
-    "url": "/social-media-git/static/js/2.73de3cf0.chunk.js.LICENSE.txt"
+    "url": "/social-media-git/static/js/2.cd0d0798.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bbbf63d6de68af77b993",
-    "url": "/social-media-git/static/js/3.266e0000.chunk.js"
+    "revision": "3b1fc26c835c2895986c",
+    "url": "/social-media-git/static/js/3.cc75a817.chunk.js"
   },
   {
-    "revision": "2d9245e83e8c6c24cbea",
-    "url": "/social-media-git/static/js/4.519a0654.chunk.js"
+    "revision": "dbc866a6ee8aa0296d1f",
+    "url": "/social-media-git/static/js/4.e3b7294d.chunk.js"
   },
   {
-    "revision": "7a6c61439c93963ad11d",
-    "url": "/social-media-git/static/js/main.eb035633.chunk.js"
+    "revision": "b65a9165a91a37612ee9",
+    "url": "/social-media-git/static/js/main.5ce7957d.chunk.js"
   },
   {
-    "revision": "7d081c63fe1a6b429e83",
-    "url": "/social-media-git/static/js/runtime-main.de5a5b85.js"
+    "revision": "2492e8142f21ab6f978c",
+    "url": "/social-media-git/static/js/runtime-main.f02629ba.js"
   },
   {
     "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",

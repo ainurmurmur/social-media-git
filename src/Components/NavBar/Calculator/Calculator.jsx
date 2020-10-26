@@ -18,6 +18,7 @@ let Calculator = (props) => {
     let [percent, setPercent] = useState(minPercent)
     let [monthBasePayment, setMonthBasePayment] =  useState(0)
     let [overpayment, setOverpayment] =  useState(0)
+    let [total, setTotal] =  useState(0)
 
     let incrementTime = () => {
         if (count != max) {
@@ -51,11 +52,15 @@ let Calculator = (props) => {
         let coefficient = (interestRate*Math.pow((1+interestRate),monthCount))/(Math.pow((1+interestRate),monthCount)-1) 
          monthBasePayment =  coefficient * value;
          overpayment = (monthBasePayment*monthCount)-value;
+         total = value + overpayment
          setMonthBasePayment(monthBasePayment)
          setOverpayment(overpayment)
-
+         setTotal(total)
     }
-    let valueToShow = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    let valueToShow = Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    let monthBasePaymentToShow =  Math.round(monthBasePayment).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    let overpaymentToShow = Math.round(overpayment).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    let totalToShow = Math.round(total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     return (
         <div className={classes.calc}>
@@ -88,13 +93,13 @@ let Calculator = (props) => {
                 <button onClick={() => calculate()}>Рассчитать</button>
             </div>
             <div className={classes.blocks}>
-                <p>Ежемесячно:</p> {Math.round(monthBasePayment)}
+                <p>Ежемесячно:</p> {monthBasePaymentToShow}
             </div>
             <div className={classes.blocks}>
-                <p>Переплата:</p> {Math.round(overpayment)}
+                <p>Переплата:</p> {overpaymentToShow}
             </div>
             <div className={classes.blocks}>
-                <p>Общая сумма выплат:</p>
+                <p>Общая сумма выплат:</p> {totalToShow}
             </div>
         </div>
     )

@@ -52,7 +52,7 @@ class App extends React.Component {
           <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
           <Route path='/users' render={withLazy(UsersContainer)} />
           <Route path='/login' render={() => <Login />} />
-          <Route path='/calculator' render={() => <Calculator />} />
+          <Route path='/calculator' render={() => <Calculator timeFrom={[1,10]}  percent={[10, 20]}/>} />
           <Route path='/settings' component={Settings} />
           <Route path='*' render={() => <div><b>404 NOT FOUND</b></div>} />
         </Switch>

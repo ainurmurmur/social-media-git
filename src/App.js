@@ -16,7 +16,7 @@ import { HashRouter } from 'react-router-dom'
 import store from './redux/redux-store';
 import { withLazy } from './Components/Common/Lazy/withLazySuspense'
 import classes from './App.module.css'
-
+import Calculator from './Components/NavBar/Calculator/Calculator'
 
 const UsersContainer = React.lazy(() => import('./Components/Users/UsersContainer'));
 const DialogsContainer = React.lazy(() => import('./Components/NavBar/Dialogs/DialogsContainer'));
@@ -52,6 +52,7 @@ class App extends React.Component {
           <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
           <Route path='/users' render={withLazy(UsersContainer)} />
           <Route path='/login' render={() => <Login />} />
+          <Route path='/calculator' render={() => <Calculator />} />
           <Route path='/settings' component={Settings} />
           <Route path='*' render={() => <div><b>404 NOT FOUND</b></div>} />
         </Switch>

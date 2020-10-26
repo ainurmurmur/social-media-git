@@ -51,6 +51,16 @@ const NavBar = () => {
           </Typography>
         </MenuItem>
         </NavLink>
+        <NavLink to='/calculator' activeClassName={classes.active} id={classes.link}>
+        <MenuItem>
+          <ListItemIcon>
+            <ReceiptIcon fontSize="medium" color='primary'/>
+          </ListItemIcon>
+          <Typography variant="h5" noWrap>
+            Calculator
+          </Typography>
+        </MenuItem>
+        </NavLink>
       </MenuList>
     </div>
     );

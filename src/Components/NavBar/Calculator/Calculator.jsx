@@ -17,6 +17,7 @@ let Calculator = (props) => {
     let [value, setValue] = useState(0)
     let [percent, setPercent] = useState(minPercent)
     let [monthBasePayment, setMonthBasePayment] =  useState(0)
+    let [overpayment, setOverpayment] =  useState(0)
 
     let incrementTime = () => {
         if (count != max) {
@@ -48,8 +49,10 @@ let Calculator = (props) => {
         
         let monthCount = count*monthInYear;
         let coefficient = (interestRate*Math.pow((1+interestRate),monthCount))/(Math.pow((1+interestRate),monthCount)-1) 
-         monthBasePayment =  coefficient * valu
+         monthBasePayment =  coefficient * value;
+         overpayment = (monthBasePayment*monthCount)-value;
          setMonthBasePayment(monthBasePayment)
+         setOverpayment(overpayment)
 
     }
     let valueToShow = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -88,7 +91,7 @@ let Calculator = (props) => {
                 <p>Ежемесячно:</p> {Math.round(monthBasePayment)}
             </div>
             <div className={classes.blocks}>
-                <p>Переплата:</p>
+                <p>Переплата:</p> {Math.round(overpayment)}
             </div>
             <div className={classes.blocks}>
                 <p>Общая сумма выплат:</p>

@@ -59,6 +59,11 @@ ul {
 
   
 }
+.calc_btn__block{
+  margin: 5px;
+  align-items: flex-end;
+  display: flex;
+}
 
 a.active {
   font-family: Poppins-Bold;

@@ -3,7 +3,7 @@
     margin:20px;
     padding: 50px;
     align-items: center;
-    background: aliceblue;
+    background: rgba(246, 251, 255, 0.877);
 }
 .blocks{
     margin: 10px;
@@ -13,4 +13,34 @@
 }
 .calc_conditions{
     margin: 5px;
+}
+.calc_btn{
+    color:white;
+    background: linear-gradient(40deg, #004c8c 80%, #80deea 90%);
+    border-radius: 50%;
+    margin: 2px;
+}
+.calc_btn__total{
+    color:white;
+    border: none;
+    padding: 12px 20px;
+    text-decoration: none;
+    cursor: pointer; 
+    font-family: Poppins-Bold; 
+    font-size: 15px;
+    border-radius: 5px;
+    margin:10px;
+    box-shadow: 0 0 6px 0px rgb(15, 15, 15);
+    font-weight: bold;
+    align-items: right;
+    width: fit-content;
+    background: linear-gradient(40deg, #004c8c 50%, #80deea 90%);
+}
+.resultBlock{
+    margin: 10px;
+    padding: 10px;
+    background: linear-gradient(0deg, rgb(238, 252, 253) 0%, rgba(160, 241, 251, 0.37) 100%);
+}
+.calc_btn__block{
+ margin-left: 350px;
 }

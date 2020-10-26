@@ -1,6 +1,16 @@
 .calc{
     width: 500px;
+    margin:20px;
+    padding: 50px;
+    align-items: center;
+    background: aliceblue;
 }
 .blocks{
     margin: 10px;
+}
+.calc_slider{
+    display: inline;
+}
+.calc_conditions{
+    margin: 5px;
 }
